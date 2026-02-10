@@ -20,6 +20,15 @@ export const chatRequestSchema = z.object({
     role: z.enum(["user", "assistant"]),
     content: z.string(),
   })).optional(),
+  conversationId: z.string().optional(),
 });
 
 export type ChatRequest = z.infer<typeof chatRequestSchema>;
+
+export interface Conversation {
+  id: string;
+  session_id: string;
+  title: string;
+  created_at: string;
+  updated_at: string;
+}
